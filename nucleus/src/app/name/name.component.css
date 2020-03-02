@@ -1,0 +1,7 @@
+mat-card,mat-list,table{
+  margin:24px;
+}
+
+td{
+  padding: 0px 10px;
+}

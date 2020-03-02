@@ -1,0 +1,36 @@
+<mat-card>
+
+  <form #nameForm="ngForm" (ngSubmit)="onSave(nameForm)">
+    <input type="hidden" #_id="ngModel" [(ngModel)]="nameService.currentName._id" name="id">
+  <mat-form-field class="example-full-width">
+      <mat-label>Enter Name</mat-label>
+      <input matInput placeholder="Ex. Tyrion Lannister" name="name" #name="ngModel" [(ngModel)]="nameService.currentName.name" required autocomplete="off">
+  </mat-form-field>
+
+  <button [disabled]="!nameForm.valid" color="primary" mat-button>Save</button>
+  </form>
+
+</mat-card>
+
+<br>
+
+<!-- <mat-list role="list">
+  <mat-list-item role="listitem" *ngFor="let name of nameService.names">
+    {{ name.name }}
+
+
+    <button color="primary" mat-button>Update</button>
+    <button color="warn" (click)="onRemove(name)" mat-button>Remove</button>
+  </mat-list-item>
+
+</mat-list> -->
+
+<table border="0">
+  <tr *ngFor="let name of nameService.names">
+    <td> {{ name.name }}</td>
+
+    <td> <button color="primary" mat-button (click)="onUpdate(name)">Update</button> </td>
+    <td> <button color="warn" (click)="onRemove(name)" mat-button>Remove</button> </td>
+  </tr>
+</table>
+
